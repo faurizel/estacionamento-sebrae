@@ -1,0 +1,30 @@
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<label for="placa">Selecionar Placa:</label>
+
+<select id="placa" onchange="selecionarVeiculo(this.value)">
+    <option value="">Selecione a placa</option>
+    <option th:each="v : ${veiculos}"
+            th:value="${v.id}"
+            th:text="${v.placa}"
+            th:selected="${veiculo != null && veiculo.id == v.id}">
+    </option>
+</select>
+<div th:if="${veiculo != null}">
+    <strong>Veículo:</strong>
+    <span th:text="${veiculo.modelo}"></span>
+    <strong>Cor:</strong>
+    <span th:text="${veiculo.cor}"></span>
+</div>
+
+<script>
+    function selecionarVeiculo(id) {
+        if (id) {
+            window.location.href = "/veiculo/saida/" + id;
+        } else {
+            window.location.href = "/veiculo/saida";
+        }
+    }
+</script>
+</body>
+</html>

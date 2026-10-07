@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estacione Sebrae</title>
+
+</head>
+<body>
+<h2>Painel</h2>
+<a href="veiculo/registrar-entrada">Registrar Entrada</a>
+<a href="veiculo/registrar-saida">Registrar Saída</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Hora Entrada</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "veiculo : ${veiculos}">
+        <td th:text = "${veiculo.placa}"></td>
+        <td th:text = "${veiculo.modelo}"></td>
+        <td th:text = "${veiculo.horaEntrada}"></td>
+        <td>Estacionado</td>
+    </tr>
+    </tbody>
+
+
+</table>
+</body>
+</html>
